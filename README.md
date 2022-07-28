@@ -1,6 +1,6 @@
 # freeCodeCamp_DB_certification
 
-These are the projects required to obtain the database certification on freecodecamp.
+These are the projects required to obtain the database certification on freecodecamp.org.
 
 universe.sql is a postgreSQL database.
 
