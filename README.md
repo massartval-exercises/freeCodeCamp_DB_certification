@@ -5,7 +5,9 @@ These are the projects required to obtain the database certification on freecode
 
 The scripts need permission to execute : `$ chmod +x <script_name>`
 
+
 ## Files and folders
+
 
 - universe.sql is a postgreSQL database built from scratch. It is one of the required learning projects for the certification.
 
