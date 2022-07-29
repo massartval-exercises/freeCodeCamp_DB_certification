@@ -1,8 +1,11 @@
 ## Instructions
 
+
 Use the file 'students.sql' to scaffold the database, or build it from the requirements below. 
 Execute the file 'insert_data.sh' to collect data from 'courses.csv' and 'students.csv' and populate the database. 
 The result should be identical to 'students_complete.sql'.
+
+
 
 ## DB tables requirements : 
 
