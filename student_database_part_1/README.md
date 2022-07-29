@@ -65,5 +65,3 @@ Indexes:
     "students_pkey" PRIMARY KEY, btree (student_id)
 Foreign-key constraints:
     "students_major_id_fkey" FOREIGN KEY (major_id) REFERENCES majors(major_id)
-
-students=> 
