@@ -3,8 +3,7 @@
 
 These are the projects required to obtain the database certification on freecodecamp.org, and some other exercises of the certification that I deemed interesting enough to save.
 The scripts need permission to execute :
-
-    `$ chmod +x <script_name>`
+`$ chmod +x <script_name>`
 
 - universe.sql is a postgreSQL database.
 
