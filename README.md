@@ -15,5 +15,7 @@ The scripts need permission to execute : `$ chmod +x <script_name>`
 
 - student_database_part_1 is a postgreSQL database with a shell script to populate it from 2 csv files. 
 
-- student_database_part_2 is a script with more complex queries on the 'student.sql' database. 
+- student_database_part_2 is a script with queries on the 'student.sql' database. 
+
+- worldcup is a postgreSQL database with a shell script to populate it from a csv file, and another script with queries on the 'worldcup.sql' database. It is one of the required learning projects for the certification.
 
