@@ -19,3 +19,5 @@ The scripts need permission to execute : `$ chmod +x <script_name>`
 
 - worldcup is a postgreSQL database with a shell script to populate it from a csv file, and another script with queries on the 'worldcup.sql' database. It is one of the required learning projects for the certification.
 
+- kitty_ipsum_translator is a collection of shell scripts that give basic info about the content of text files and translate kitty into doggy.
+
