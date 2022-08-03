@@ -21,3 +21,5 @@ The scripts need permission to execute : `$ chmod +x <script_name>`
 
 - kitty_ipsum_translator is a collection of shell scripts that give basic info about the content of text files and translate kitty into doggy.
 
+- bike_shop is a postgreSQL database with a shell script to access and update the database.
+

@@ -1,5 +1,5 @@
 #!/bin/bash
-#Script to insert data from courses.csv and students.csv into students database
+# Script to insert data from courses.csv and students.csv into students database.
 
 # Good practice : create courses_test.csv and students_test.csv with only a few records from the original files to test the loops while building the script
 

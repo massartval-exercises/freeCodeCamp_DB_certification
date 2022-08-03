@@ -1,10 +1,10 @@
 #!/bin/bash
+# Info about my computer science students from students database.
 
-# Info about my computer science students from students database
+#connect to the db to send requests ; tweaking needed if not used on the freecodecamp website
+PSQL="psql -X --username=freecodecamp --dbname=students --no-align --tuples-only -c"
 
 echo -e "\n~~ My Computer Science Students ~~\n"
-
-PSQL="psql -X --username=freecodecamp --dbname=students --no-align --tuples-only -c"
 
 echo -e "\nFirst name, last name, and GPA of students with a 4.0 GPA:"
 echo "$($PSQL "SELECT first_name, last_name, gpa FROM students WHERE gpa = 4.0")"
