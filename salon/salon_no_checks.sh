@@ -116,7 +116,7 @@ APPOINTMENT_MENU() {
   INSERT_APPOINTMENT_RESULT=$($PSQL "INSERT INTO appointments(customer_id, service_id, time) VALUES($CUSTOMER_ID, $SERVICE_ID, '$SERVICE_TIME')")
   if [[ $INSERT_APPOINTMENT_RESULT = "INSERT 0 1" ]]
   then
-    echo -e "\nI have put you down for a $(echo $SERVICE_NAME) at $SERVICE_TIME, $(echo $CUSTOMER_NAME)."
+    echo -e "\nI have put you down for a $(echo $SERVICE_NAME | tr A-Z a-z) at $SERVICE_TIME, $(echo $CUSTOMER_NAME)."
   fi
 }
 
