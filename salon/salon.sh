@@ -17,21 +17,26 @@ SERVICE_MENU() {
   # display service menu
   echo "What service do you want to book?" 
   SERVICES=$($PSQL "SELECT * FROM services")
-  echo "$SERVICES" | while read SERVICE_ID BAR NAME
+  echo "$SERVICES" | while read S_ID BAR S_NAME
   do
-    echo "$SERVICE_ID) $NAME"
+    echo "$_ID) $S_NAME"
   done
 
-  # get service request
+ # get service request
   read SERVICE_ID_SELECTED
-  # validity check
-  SERVICE_ID=$($PSQL"SELECT service_id from services WHERE service_id=$SERVICE_ID_SELECTED")
-  if [[ -z $SERVICE_ID ]]
-  then
-    SERVICE_MENU 'Please enter a valid option.' 
-  fi
-  # send to customer menu
-  CUSTOMER_MENU
+
+  # get services id list and format it like this: 1|2|3|4
+  SERVICES_ID_LIST=$($PSQL "SELECT service_id FROM services")
+  FORMATTED_LIST=$(echo $SERVICES_ID_LIST | sed 's/ /|/g; s/^|//; s/|$//')
+
+  # compare input to list
+  eval "case \"$SERVICE_ID_SELECTED\" in
+    $FORMATTED_LIST)
+        SERVICE_ID=$SERVICE_ID_SELECTED
+        CUSTOMER_MENU ;;
+    *)
+        SERVICE_MENU \"Please enter a valid option.\" ;;
+  esac"
 }
 
 CUSTOMER_MENU() {
@@ -57,7 +62,7 @@ CUSTOMER_MENU() {
   # validity check
   if [[ ! $CUSTOMER_PHONE =~ ^([0-9]{3}-){2}[0-9]{4}$ ]]
   then
-    CUSTOMER_MENU "Invalid phone number format"
+    CUSTOMER_MENU "Invalid phone number format."
   fi
 
   # get customer id from db
@@ -75,7 +80,7 @@ CUSTOMER_MENU() {
     # validity check
     if [[ -z $CUSTOMER_NAME ]]
     then
-      CUSTOMER_MENU "Name should not be empty"
+      CUSTOMER_MENU "Name should not be empty."
     fi
     # insert new customer
     INSERT_CUSTOMER_RESULT=$($PSQL "INSERT INTO customers(phone, name) VALUES('$CUSTOMER_PHONE', '$CUSTOMER_NAME')")
@@ -107,7 +112,7 @@ APPOINTMENT_MENU() {
   # validity check
   if [[ ! ($SERVICE_TIME =~ ^[0-2][0-4]:[0-5][0-9]$ || $SERVICE_TIME =~ ^([1][0-2]|[0-9])(am|pm)$) ]]
   then
-    APPOINTMENT_MENU "Invalid time format"
+    APPOINTMENT_MENU "Invalid time format."
   fi
   # insert new appointment
   INSERT_APPOINTMENT_RESULT=$($PSQL "INSERT INTO appointments(customer_id, service_id, time) VALUES($CUSTOMER_ID, $SERVICE_ID, '$SERVICE_TIME')")
