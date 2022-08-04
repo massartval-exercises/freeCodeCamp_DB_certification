@@ -23,3 +23,5 @@ The scripts need permission to execute : `$ chmod +x <script_name>`
 
 - bike_shop is a postgreSQL database with a shell script to access and update the database.
 
+- salon is a postgreSQL database with a shell script to access and update the database. It is one of the required learning projects for the certification.
+
