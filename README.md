@@ -25,3 +25,4 @@ The scripts need permission to execute : `$ chmod +x <script_name>`
 
 - salon is a postgreSQL database with a shell script to access and update the database. It is one of the required learning projects for the certification.
 
+- periodic_table is a postgreSQL database with a shell script to get information from the database. It is one of the required learning projects for the certification.
